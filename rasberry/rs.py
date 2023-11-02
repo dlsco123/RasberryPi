@@ -52,7 +52,7 @@ def download_images():
     # 포인터를 시작 부분으로 이동
     memory_file.seek(0)
     
-    capturing = True  # 촬영 재개
+    # capturing = True  # 촬영 재개
     # 압축 파일을 응답으로 전송
     return send_file(memory_file, attachment_filename='images.zip', as_attachment=True)
 
