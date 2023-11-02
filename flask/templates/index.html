@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raspberry Pi Server Control Panel</title>
+</head>
+<body>
+    <h1>Raspberry Pi Server Control Panel</h1>
+    <button onclick="window.location.href='/download-images'">Download Images</button>
+    <button onclick="checkStatus()">Check Server Status</button>
+    <p id="status"></p>
+
+    <script>
+        function checkStatus() {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('status').textContent = data.status;
+                })
+                .catch(error => {
+                    document.getElementById('status').textContent = 'Error: ' + error;
+                });
+        }
+    </script>
+</body>
+</html>
